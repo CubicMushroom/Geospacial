@@ -1,0 +1,16 @@
+{
+    "name": "cubicmushroom/geospacial",
+    "description": "Library for performing geospacial calculations",
+    "authors": [
+        {
+            "name": "Toby Griffiths",
+            "email": "toby@cubicmushroom.co.uk"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "psr-0": {"CubicMushroom\\Geospacial": "src/"}
+    }
+}
