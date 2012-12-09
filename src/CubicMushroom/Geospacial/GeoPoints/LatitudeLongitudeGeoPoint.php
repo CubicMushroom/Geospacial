@@ -8,9 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace CubicMushroom\Geospacial\Points;
+namespace CubicMushroom\Geospacial\GeoPoints;
 
-class EastingNorthingGeoPoint extends GeoPoint
+class LatitudeLongitudeGeoPoint extends GeoPoint
 {
-    
+    public $latitude;
+    public $longitude;
+
+    public function __construct($lat, $lon)
+    {
+        $this->latitude = $lat;
+        $this->longitude = $lon;
+    }
 }

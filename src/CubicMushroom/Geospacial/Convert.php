@@ -10,6 +10,8 @@
 
 namespace CubicMushroom\Geospacial;
 
+use CubicMushroom\Geospacial\GeoPoints;
+
 class Convert
 {
     /**
@@ -81,15 +83,17 @@ class Convert
     /**
      * Convert Easting/Northing to Lat/Lon
      *
-     * Method originally from
+     * Method adapted from originally found here...
      * http://bramp.net/blog/2008/06/os-easting-northing-to-lat-long/
      *
-     * @param mixed $East  Easting value
-     * @param mixed $North Northing value
+     * @param obj $point EastingNorthingGeoPoint object for converting
      *
-     * @return array ($lat, $lon)
+     * @return obj LatitudeLongitudeGeoPoint object represnting point
      */
-    public static function E_N_to_Lat_Long($East, $North) {
+    public static function E_N_to_Lat_Long(GeoPoints\EastingNorthingGeoPoint $point) {
+
+        $North = $point->northing;
+        $East  = $point->easting;
         
         $a  = 6377563.396; // Semi-major axis, a
         $b  = 6356256.910; //Semi-minor axis, b
@@ -140,7 +144,7 @@ class Convert
         $long = (180 / M_PI) * ($RadLAM0 + ($Et * $X) - pow($Et,3) * $XI + pow($Et,5) * $XII - pow($Et,7) * $XIIA);
         $lat  = (180 / M_PI) * ($PHId - (pow($Et,2) * $VII) + (pow($Et, 4) * $VIII) - (pow($Et, 6) * $IX));
         
-        return array($lat, $long);
+        return new GeoPoints\LatitudeLongitudeGeoPoint($lat, $long);
     }
 
 }

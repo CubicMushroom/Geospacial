@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace CubicMushroom\Geospacial\Points;
+namespace CubicMushroom\Geospacial\GeoPoints;
 
 use CubicMushroom\Geospacial\Convert;
 
@@ -46,8 +46,8 @@ class GeoPoint
 
             return new LatitudeLongitudeGeoPoint($lat, $lng);
         default:
-            thrown new InvalidArgumentException(
-                'Convertion for '$originClass' type not defined'
+            throw new InvalidArgumentException(
+                "Convertion for '$originClass' type not defined"
             );
         }
     }
