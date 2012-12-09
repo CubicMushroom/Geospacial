@@ -90,7 +90,7 @@ class Convert
      *
      * @return obj LatitudeLongitudeGeoPoint object represnting point
      */
-    public static function E_N_to_Lat_Long(GeoPoints\EastingNorthingGeoPoint $point) {
+    public static function ENToLatLong(GeoPoints\EastingNorthingGeoPoint $point) {
 
         $North = $point->northing;
         $East  = $point->easting;
