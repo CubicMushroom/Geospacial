@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a1" title="">
+  <file path="src/CubicMushroom/Geospacial/Convert.php" hash="da0d583f714a4aa818773f33e94591a7" package="Cubic Mushroom Geospacial">
+    <docblock line="2">
+      <description><![CDATA[This file is part of the CubicMushroom/Geospacial package.]]></description>
+      <long-description><![CDATA[<p>(c) Cubic Mushroom Ltd. <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#x73;&#x75;&#x70;&#112;&#111;&#x72;&#x74;&#x40;&#99;&#117;&#x62;&#x69;&#x63;&#109;&#117;&#x73;&#x68;&#x72;&#111;&#111;&#x6d;&#x2e;&#x63;&#111;&#109;">&#x73;&#x75;&#x70;&#112;&#111;&#x72;&#x74;&#x40;&#99;&#117;&#x62;&#x69;&#x63;&#109;&#117;&#x73;&#x68;&#x72;&#111;&#111;&#x6d;&#x2e;&#x63;&#111;&#109;</a></p>
+
+<p>For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.</p>]]></long-description>
+      <tag line="2" name="package" description="Cubic Mushroom Geospacial"/>
+      <tag line="2" name="author" description="Toby Griffiths &lt;toby@cubicmushroom.co.uk&gt;"/>
+      <tag line="2" name="copyright" description="Cubic Mushroom Ltd. 2012"/>
+      <tag line="2" name="license" description="See LICENSE file provided with package"/>
+    </docblock>
+    <namespace-alias name="EastingNorthingGeoPoint">CubicMushroom\Geospacial\GeoPoints\EastingNorthingGeoPoint</namespace-alias>
+    <namespace-alias name="LatitudeLongitudeGeoPoint">CubicMushroom\Geospacial\GeoPoints\LatitudeLongitudeGeoPoint</namespace-alias>
+    <class final="false" abstract="false" namespace="CubicMushroom\Geospacial" line="26" package="Cubic Mushroom Geospacial">
+      <name>Convert</name>
+      <full_name>\CubicMushroom\Geospacial\Convert</full_name>
+      <extends/>
+      <docblock line="21">
+        <description><![CDATA[Class that handles conversion of co-ordinates]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="21" name="package" description="Cubic Mushroom Geospacial"/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="CubicMushroom\Geospacial" line="42" package="">
+        <name>Marc</name>
+        <type>function</type>
+        <docblock line="28">
+          <description><![CDATA[Compute meridional arc.]]></description>
+          <long-description><![CDATA[<p>Method originally from
+http://bramp.net/blog/2008/06/os-easting-northing-to-lat-long/</p>]]></long-description>
+          <tag line="28" name="param" description="Ellipsoid semi major axis multiplied by central meridian scale factor (bf0) in meters;" type="mixed" variable="$bf0">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="28" name="param" description="(computed from a, b and f0);" type="mixed" variable="$n">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="28" name="param" description="lat of false origin (PHI0)" type="mixed" variable="$PHI0">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="28" name="param" description="initial or final latitude of point (PHI) IN RADIANS." type="mixed" variable="$PHI">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="28" name="return" description="" type="float">
+            <type by_reference="false">float</type>
+          </tag>
+        </docblock>
+        <argument line="42">
+          <name>$bf0</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="42">
+          <name>$n</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="42">
+          <name>$PHI0</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="42">
+          <name>$PHI</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="CubicMushroom\Geospacial" line="73" package="">
+        <name>initialLat</name>
+        <type>function</type>
+        <docblock line="55">
+          <description><![CDATA[Compute initial value for Latitude (PHI) IN RADIANS.]]></description>
+          <long-description><![CDATA[<p>Method originally from
+http://bramp.net/blog/2008/06/os-easting-northing-to-lat-long/</p>]]></long-description>
+          <tag line="55" name="param" description="Northing of point (North) and northing of false origin" type="mixed" variable="$North">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="55" name="param" description="(n0) in meters" type="mixed" variable="$n0">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="55" name="param" description="Semi major axis multiplied by central meridian scale factor (af0) in meters" type="mixed" variable="$afo">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="55" name="param" description="Latitude of false origin (PHI0) IN RADIANS" type="mixed" variable="$PHI0">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="55" name="param" description="n (computed from a, b and f0)" type="mixed" variable="$n">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="55" name="param" description="ellipsoid semi major axis multiplied by central meridian scale factor (bf0) in meters." type="mixed" variable="$bfo">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="55" name="return" description="" type="float">
+            <type by_reference="false">float</type>
+          </tag>
+        </docblock>
+        <argument line="73">
+          <name>$North</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="73">
+          <name>$n0</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="73">
+          <name>$afo</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="73">
+          <name>$PHI0</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="73">
+          <name>$n</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="73">
+          <name>$bfo</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="CubicMushroom\Geospacial" line="105" package="">
+        <name>ENToLatLong</name>
+        <type>function</type>
+        <docblock line="94">
+          <description><![CDATA[Convert Easting/Northing to Lat/Lon]]></description>
+          <long-description><![CDATA[<p>Method adapted from originally found here...
+http://bramp.net/blog/2008/06/os-easting-northing-to-lat-long/</p>]]></long-description>
+          <tag line="94" name="param" description="EastingNorthingGeoPoint object for converting" type="\CubicMushroom\Geospacial\GeoPoints\EastingNorthingGeoPoint" variable="$point">
+            <type by_reference="false">\CubicMushroom\Geospacial\GeoPoints\EastingNorthingGeoPoint</type>
+          </tag>
+          <tag line="94" name="return" description="Object representing point" type="\CubicMushroom\Geospacial\GeoPoints\LatitudeLongitudeGeoPoint">
+            <type by_reference="false">\CubicMushroom\Geospacial\GeoPoints\LatitudeLongitudeGeoPoint</type>
+          </tag>
+        </docblock>
+        <argument line="105">
+          <name>$point</name>
+          <default><![CDATA[]]></default>
+          <type>EastingNorthingGeoPoint</type>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="src/CubicMushroom/Geospacial/GeoPoints/EastingNorthingGeoPoint.php" hash="67dee3904db4506289104d24b20c5133" package="Default">
+    <parse_markers>
+      <error line="15" code="50018">No DocBlock was found for property $easting</error>
+      <error line="16" code="50018">No DocBlock was found for property $northing</error>
+      <error line="18" code="50015">Argument $easting is missing from the Docblock of __construct()</error>
+      <error line="18" code="50015">Argument $northing is missing from the Docblock of __construct()</error>
+      <error line="13" code="50000">No DocBlock was found for EastingNorthingGeoPoint</error>
+      <error line="1" code="50007">No page-level DocBlock was found in file src/CubicMushroom/Geospacial/GeoPoints/EastingNorthingGeoPoint.php</error>
+    </parse_markers>
+    <class final="false" abstract="false" namespace="CubicMushroom\Geospacial\GeoPoints" line="13" package="Default">
+      <name>EastingNorthingGeoPoint</name>
+      <full_name>\CubicMushroom\Geospacial\GeoPoints\EastingNorthingGeoPoint</full_name>
+      <extends>\CubicMushroom\Geospacial\GeoPoints\GeoPoint</extends>
+      <property final="false" static="false" visibility="public" line="15" package="Default">
+        <name>$easting</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="16" package="Default">
+        <name>$northing</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CubicMushroom\Geospacial\GeoPoints" line="21" package="">
+        <name>__construct</name>
+        <type>function</type>
+        <docblock line="18">
+          <description><![CDATA[Breaks the]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+        <argument line="21">
+          <name>$easting</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="21">
+          <name>$northing</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="src/CubicMushroom/Geospacial/GeoPoints/GeoPoint.php" hash="4bccb26765d597aea7722188f6386ce2" package="Default">
+    <parse_markers>
+      <error line="24" code="50010">No DocBlock was found for method __construct()</error>
+      <error line="38" code="50010">No DocBlock was found for method asLatLon()</error>
+      <error line="15" code="50000">No DocBlock was found for GeoPoint</error>
+      <error line="1" code="50007">No page-level DocBlock was found in file src/CubicMushroom/Geospacial/GeoPoints/GeoPoint.php</error>
+    </parse_markers>
+    <namespace-alias name="Convert">CubicMushroom\Geospacial\Convert</namespace-alias>
+    <class final="false" abstract="false" namespace="CubicMushroom\Geospacial\GeoPoints" line="15" package="Default">
+      <name>GeoPoint</name>
+      <full_name>\CubicMushroom\Geospacial\GeoPoints\GeoPoint</full_name>
+      <extends/>
+      <property final="false" static="false" visibility="protected" line="22" package="Default">
+        <name>$origin</name>
+        <default><![CDATA[]]></default>
+        <docblock line="17">
+          <description><![CDATA[Original point object]]></description>
+          <long-description><![CDATA[<p>Can be any type of point object that extends this class</p>]]></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CubicMushroom\Geospacial\GeoPoints" line="24" package="">
+        <name>__construct</name>
+        <type>function</type>
+        <argument line="24">
+          <name>$origin</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CubicMushroom\Geospacial\GeoPoints" line="38" package="">
+        <name>asLatLon</name>
+        <type>function</type>
+      </method>
+    </class>
+  </file>
+  <file path="src/CubicMushroom/Geospacial/GeoPoints/LatitudeLongitudeGeoPoint.php" hash="01a8bec3aa9e5ccf3c3d338b0bf18191" package="Default">
+    <parse_markers>
+      <error line="15" code="50018">No DocBlock was found for property $latitude</error>
+      <error line="16" code="50018">No DocBlock was found for property $longitude</error>
+      <error line="18" code="50010">No DocBlock was found for method __construct()</error>
+      <error line="13" code="50000">No DocBlock was found for LatitudeLongitudeGeoPoint</error>
+      <error line="1" code="50007">No page-level DocBlock was found in file src/CubicMushroom/Geospacial/GeoPoints/LatitudeLongitudeGeoPoint.php</error>
+    </parse_markers>
+    <class final="false" abstract="false" namespace="CubicMushroom\Geospacial\GeoPoints" line="13" package="Default">
+      <name>LatitudeLongitudeGeoPoint</name>
+      <full_name>\CubicMushroom\Geospacial\GeoPoints\LatitudeLongitudeGeoPoint</full_name>
+      <extends>\CubicMushroom\Geospacial\GeoPoints\GeoPoint</extends>
+      <property final="false" static="false" visibility="public" line="15" package="Default">
+        <name>$latitude</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="16" package="Default">
+        <name>$longitude</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CubicMushroom\Geospacial\GeoPoints" line="18" package="">
+        <name>__construct</name>
+        <type>function</type>
+        <argument line="18">
+          <name>$lat</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="18">
+          <name>$lon</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="tests/CubicMushroom/Geospacial/Tests/ConvertTest.php" hash="7bfb28f6928dac3e46c788d2baedacb4" package="Default">
+    <parse_markers>
+      <error line="19" code="50000">No DocBlock was found for ConvertTest</error>
+      <error line="1" code="50007">No page-level DocBlock was found in file tests/CubicMushroom/Geospacial/Tests/ConvertTest.php</error>
+    </parse_markers>
+    <namespace-alias name="GeoPoints">CubicMushroom\Geospacial\GeoPoints</namespace-alias>
+    <include line="17" type="Require" package="Default">
+      <name>/../../../../vendor/autoload.php</name>
+    </include>
+    <class final="false" abstract="false" namespace="CubicMushroom\Geospacial" line="19" package="Default">
+      <name>ConvertTest</name>
+      <full_name>\CubicMushroom\Geospacial\ConvertTest</full_name>
+      <extends>\PHPUnit_Framework_TestCase</extends>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="CubicMushroom\Geospacial" line="24" package="">
+        <name>testENToLatLong</name>
+        <type>function</type>
+        <docblock line="21">
+          <description><![CDATA[Test conversion from Easting/Northing to Lat/Lon]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <package name="" full_name=""/>
+  <package name="Cubic Mushroom Geospacial" full_name="Cubic Mushroom Geospacial"/>
+  <package name="Default" full_name="Default"/>
+  <namespace name="CubicMushroom" full_name="CubicMushroom">
+    <namespace name="Geospacial" full_name="CubicMushroom\Geospacial">
+      <namespace name="GeoPoints" full_name="CubicMushroom\Geospacial\GeoPoints"/>
+    </namespace>
+  </namespace>
+  <marker>todo</marker>
+  <marker>fixme</marker>
+</project>
