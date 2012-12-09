@@ -7,16 +7,21 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author  Toby Griffiths <toby@cubicmushroom.co.uk>
- * @license See LICENSE file provided with package
+ * @package   Cubic Mushroom Geospacial
+ * @author    Toby Griffiths <toby@cubicmushroom.co.uk>
+ * @copyright Cubic Mushroom Ltd. 2012
+ * @license   See LICENSE file provided with package
  */
 
 namespace CubicMushroom\Geospacial;
 
-use CubicMushroom\Geospacial\GeoPoints;
+use CubicMushroom\Geospacial\GeoPoints\EastingNorthingGeoPoint;
+use CubicMushroom\Geospacial\GeoPoints\LatitudeLongitudeGeoPoint;
 
 /**
  * Class that handles conversion of co-ordinates
+ *
+ * @package   Cubic Mushroom Geospacial
  */
 class Convert
 {
@@ -92,11 +97,12 @@ class Convert
      * Method adapted from originally found here...
      * http://bramp.net/blog/2008/06/os-easting-northing-to-lat-long/
      *
-     * @param EastingNorthingGeoPoint $point EastingNorthingGeoPoint object for converting
+     * @param EastingNorthingGeoPoint $point EastingNorthingGeoPoint object
+     *                                                 for converting
      *
      * @return LatitudeLongitudeGeoPoint Object representing point
      */
-    public static function ENToLatLong(GeoPoints\EastingNorthingGeoPoint $point) {
+    public static function ENToLatLong(EastingNorthingGeoPoint $point) {
 
         $North = $point->northing;
         $East  = $point->easting;
@@ -150,7 +156,7 @@ class Convert
         $long = (180 / M_PI) * ($RadLAM0 + ($Et * $X) - pow($Et,3) * $XI + pow($Et,5) * $XII - pow($Et,7) * $XIIA);
         $lat  = (180 / M_PI) * ($PHId - (pow($Et,2) * $VII) + (pow($Et, 4) * $VIII) - (pow($Et, 6) * $IX));
         
-        return new GeoPoints\LatitudeLongitudeGeoPoint($lat, $long);
+        return new LatitudeLongitudeGeoPoint($lat, $long);
     }
 
 }
