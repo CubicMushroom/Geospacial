@@ -1,17 +1,23 @@
 <?php
-/*
+/**
  * This file is part of the CubicMushroom/Geospacial package.
  *
  * (c) Cubic Mushroom Ltd. <support@cubicmushroom.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @author  Toby Griffiths <toby@cubicmushroom.co.uk>
+ * @license See LICENSE file provided with package
  */
 
 namespace CubicMushroom\Geospacial;
 
 use CubicMushroom\Geospacial\GeoPoints;
 
+/**
+ * Class that handles conversion of co-ordinates
+ */
 class Convert
 {
     /**
@@ -86,9 +92,9 @@ class Convert
      * Method adapted from originally found here...
      * http://bramp.net/blog/2008/06/os-easting-northing-to-lat-long/
      *
-     * @param obj $point EastingNorthingGeoPoint object for converting
+     * @param EastingNorthingGeoPoint $point EastingNorthingGeoPoint object for converting
      *
-     * @return obj LatitudeLongitudeGeoPoint object represnting point
+     * @return LatitudeLongitudeGeoPoint Object representing point
      */
     public static function ENToLatLong(GeoPoints\EastingNorthingGeoPoint $point) {
 
