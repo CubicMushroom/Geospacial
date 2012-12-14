@@ -26,5 +26,5 @@ Documentation can be found in the <code>/docs</code> folder within the package.
 Roadmap
 -------
 
-1. Add OS Postcode import functionality (currently in separate package)
+1. Integrate OS Postcode import functionality (currently in separate package)
 2. Add alternative co-ordinate conversions
