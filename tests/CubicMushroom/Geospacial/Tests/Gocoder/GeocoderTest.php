@@ -109,4 +109,41 @@ class ConvertTest extends \PHPUnit_Framework_TestCase
             );
         }
     }
+
+    /**
+     * Test case postcodes with spaces with the UKPostcodeToLatLon conversion
+     */
+    public function testUKPostcodeToLatLonWithPostcodesWithSpacesIn()
+    {
+        $data = array(
+            array(
+                'postcode' => new UKPostcode('EX17 2BT'),
+                'expected' => new LatitudeLongitudeGeoPoint('50.790', '-3.655'),
+            ),
+            array(
+                'postcode' => new UKPostcode('KT10 8QD'),
+                'expected' => new LatitudeLongitudeGeoPoint('51.370', '-0.373'),
+            ),
+            array(
+                'postcode' => new UKPostcode('M14 5GU'),
+                'expected' => new LatitudeLongitudeGeoPoint('53.457', '-2.205'),
+            ),
+        );
+
+        foreach ($data as $toTest) {
+            $latLon = $this->geocoder->UKPostcodeToLatLon($toTest['postcode']);
+            $this->assertEquals(
+                $toTest['expected']->latitude,
+                $latLon->latitude,
+                'Latitude does not match expected result',
+                0.002
+            );
+            $this->assertEquals(
+                $toTest['expected']->longitude,
+                $latLon->longitude,
+                'Longitude does not match expected result',
+                0.002
+            );
+        }
+    }
 }

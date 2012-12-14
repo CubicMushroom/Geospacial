@@ -13,7 +13,8 @@
 namespace CubicMushroom\Geospacial\Entity;
 
 /**
- * @Entity @Table(name="postcodes",indexes={@index(name="postcode_idx", columns={"postcode"})})
+ * @Entity(repositoryClass="CubicMushroom\Geospacial\Entity\UKPostcodeRepository")
+ * @Table(name="postcodes",indexes={@index(name="postcode_idx", columns={"postcode"})})
  **/
 class UKPostcode
 {
