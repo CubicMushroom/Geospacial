@@ -15,5 +15,5 @@
  
  namespace CubicMushroom\Geospacial\Exception;
  
- class TooManyResultsException extends Exception
+ class TooManyResultsException extends \Exception
  {}

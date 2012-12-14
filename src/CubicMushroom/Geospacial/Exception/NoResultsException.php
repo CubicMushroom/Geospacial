@@ -15,5 +15,5 @@
  
  namespace CubicMushroom\Geospacial\Exception;
  
- class NoResultsException extends Exception
+ class NoResultsException extends \Exception
  {}
