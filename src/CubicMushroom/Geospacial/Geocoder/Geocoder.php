@@ -17,6 +17,8 @@ namespace CubicMushroom\Geospacial\Geocoder;
 
 use CubicMushroom\Geospacial\Address\UKPostcode;
 use CubicMushroom\Geospacial\GeoPoints\LatitudeLongitudeGeoPoint;
+use CubicMushroom\Geospacial\Exception\NoResultsException;
+use CubicMushroom\Geospacial\Exception\TooManyResultsException;
 
 /**
  * Class to handle geocoding of addresses to co-ordinates
