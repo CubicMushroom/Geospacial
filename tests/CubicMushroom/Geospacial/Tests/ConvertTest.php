@@ -11,6 +11,7 @@
 namespace CubicMushroom\Geospacial;
 
 use CubicMushroom\Geospacial\GeoPoints;
+use Geograph\ConversionLatLong;
 
 // var_export(realpath(__DIR__ . "/../../../../")); exit;
 
@@ -18,6 +19,15 @@ require __DIR__ . "/../../../../vendor/autoload.php";
 
 class ConvertTest extends \PHPUnit_Framework_TestCase
 {
+    protected $acceptableDelta = 0.0002;
+
+    public function testNewENToLatLonConverter()
+    {
+        $converter = new ConversionLatLong();
+        $latLon = osgb36_to_wgs84('442124', '313080');
+        $this->assertEquals(array(52.71376507, -1.37787778), $latLon);
+    }
+
     /**
      * Test conversion from Easting/Northing to Lat/Lon
      */
@@ -86,13 +96,13 @@ class ConvertTest extends \PHPUnit_Framework_TestCase
                 $pointSet['LatLgn']->getLatitude(),
                 $llPoint->getLatitude(),
                 "Converted point's latitude value is not correct",
-                0.002
+                $this->acceptableDelta
             );
             $this->assertEquals(
                 $pointSet['LatLgn']->getLongitude(),
                 $llPoint->getLongitude(),
                 "Converted point's longitude value is not correct",
-                0.002
+                $this->acceptableDelta
             );
         }
     }

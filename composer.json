@@ -11,6 +11,9 @@
         "doctrine/orm": "2.3.*"
     },
     "autoload": {
-        "psr-0": {"CubicMushroom\\Geospacial": "src/"}
+        "psr-0": {
+            "CubicMushroom\\Geospacial": "src/",
+            "Geograph": "src/"
+        }
     }
 }
