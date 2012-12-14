@@ -59,14 +59,14 @@ class ConvertTest extends \PHPUnit_Framework_TestCase
         foreach ($data as $toTest) {
             $latLon = $this->geocoder->UKPostcodeToLatLon($toTest['postcode']);
             $this->assertEquals(
-                $toTest['expected']->latitude,
-                $latLon->latitude,
+                $toTest['expected']->getLatitude(),
+                $latLon->getLatitude(),
                 'Latitude does not match expected result',
                 0.002
             );
             $this->assertEquals(
-                $toTest['expected']->longitude,
-                $latLon->longitude,
+                $toTest['expected']->getLongitude(),
+                $latLon->getLongitude(),
                 'Longitude does not match expected result',
                 0.002
             );
@@ -96,14 +96,14 @@ class ConvertTest extends \PHPUnit_Framework_TestCase
         foreach ($data as $toTest) {
             $latLon = $this->geocoder->UKPostcodeToLatLon($toTest['postcode']);
             $this->assertEquals(
-                $toTest['expected']->latitude,
-                $latLon->latitude,
+                $toTest['expected']->getLatitude(),
+                $latLon->getLatitude(),
                 'Latitude does not match expected result',
                 0.002
             );
             $this->assertEquals(
-                $toTest['expected']->longitude,
-                $latLon->longitude,
+                $toTest['expected']->getLongitude(),
+                $latLon->getLongitude(),
                 'Longitude does not match expected result',
                 0.002
             );
@@ -133,14 +133,14 @@ class ConvertTest extends \PHPUnit_Framework_TestCase
         foreach ($data as $toTest) {
             $latLon = $this->geocoder->UKPostcodeToLatLon($toTest['postcode']);
             $this->assertEquals(
-                $toTest['expected']->latitude,
-                $latLon->latitude,
+                $toTest['expected']->getLatitude(),
+                $latLon->getLatitude(),
                 'Latitude does not match expected result',
                 0.002
             );
             $this->assertEquals(
-                $toTest['expected']->longitude,
-                $latLon->longitude,
+                $toTest['expected']->getLongitude(),
+                $latLon->getLongitude(),
                 'Longitude does not match expected result',
                 0.002
             );

@@ -12,12 +12,28 @@ namespace CubicMushroom\Geospacial\GeoPoints;
 
 class LatitudeLongitudeGeoPoint extends GeoPoint
 {
-    public $latitude;
-    public $longitude;
+    protected $latitude;
+    protected $longitude;
 
     public function __construct($lat, $lon)
     {
         $this->latitude = $lat;
         $this->longitude = $lon;
+    }
+
+    /**
+     * Getter for latitude property
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * Getter for longitude property
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
     }
 }

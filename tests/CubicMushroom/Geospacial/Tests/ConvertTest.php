@@ -83,14 +83,14 @@ class ConvertTest extends \PHPUnit_Framework_TestCase
         foreach ($points as $pointSet) {
             $llPoint = Convert::ENToLatLong($pointSet['EN']);
             $this->assertEquals(
-                $pointSet['LatLgn']->latitude,
-                $llPoint->latitude,
+                $pointSet['LatLgn']->getLatitude(),
+                $llPoint->getLatitude(),
                 "Converted point's latitude value is not correct",
                 0.002
             );
             $this->assertEquals(
-                $pointSet['LatLgn']->longitude,
-                $llPoint->longitude,
+                $pointSet['LatLgn']->getLongitude(),
+                $llPoint->getLongitude(),
                 "Converted point's longitude value is not correct",
                 0.002
             );
