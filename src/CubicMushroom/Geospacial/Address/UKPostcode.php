@@ -33,7 +33,7 @@ class UKPostcode extends Address
         $this->postcode = $postcode;
     }
 
-    public function __toString()
+    public function getPostcode()
     {
         return $this->postcode;
     }

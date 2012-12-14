@@ -41,9 +41,15 @@ class Geocoder
      */
     public function UKPostcodeToLatLon(UKPostcode $postcode)
     {
-        $lookup = $this->entityManager->getRepository('\CubicMushroom\Geospacial\Entity\UKPostcode')->findBy(array('postcode' => $postcode));
+        $lookup = $this->entityManager->getRepository(
+            '\CubicMushroom\Geospacial\Entity\UKPostcode'
+        )->findBy(array('postcode' => $postcode->getPostcode()));
 
-        if (count($lookup) == 1) {
+        if (empty($lookup)) {
+            throw new NoResultsException('No postcodes found that match ' . $postcode->getPostcode());
+        } elseif (count($lookup) > 1) {
+            throw new TooManyResultsException('More than 1 result found');
+        } else {
             return new LatitudeLongitudeGeoPoint($lookup[0]->getLatitude(), $lookup[0]->getLongitude());
         }
     }

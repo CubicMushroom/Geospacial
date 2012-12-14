@@ -18,7 +18,7 @@ namespace CubicMushroom\Geospacial\Address;
 /**
  * Defines the core Address object class, designed to be extended by subclasses
  */
-abstract class Address
+class Address
 {
     public $street;
     public $postcode;
@@ -38,6 +38,4 @@ abstract class Address
             throw new RuntimeException("$property property is not accessible");
         }
     }
-
-    abstract function __toString();
 }
