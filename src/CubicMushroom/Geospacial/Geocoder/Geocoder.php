@@ -19,6 +19,8 @@ use CubicMushroom\Geospacial\Address\UKPostcode;
 use CubicMushroom\Geospacial\GeoPoints\LatitudeLongitudeGeoPoint;
 use CubicMushroom\Geospacial\Exception\NoResultsException;
 use CubicMushroom\Geospacial\Exception\TooManyResultsException;
+use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\EntityManager;
 
 /**
  * Class to handle geocoding of addresses to co-ordinates
@@ -31,11 +33,20 @@ use CubicMushroom\Geospacial\Exception\TooManyResultsException;
 class Geocoder
 {
     /**
-     * Currently does nothing!
+     * Sets up the Doctrine Entity Manager
+     * @param array   $dbParams  Database connection parameters
+     * @param boolean $isDevMode If $devMode is true always use an ArrayCache and set
+     *                           setAutoGenerateProxyClasses(true).
+     *                           If $devMode is false, check for Caches in the order
+     *                           APC, Xcache, Memcache (127.0.0.1:11211) unless $cache
+     *                           is passed as fourth argument.
      */
-    public function __construct()
+    public function __construct( $dbParams, $isDevMode = true )
     {
-        $this->entityManager = require __DIR__ . "/../../../../bootstrap_doctrine.php";
+        $paths = array(__DIR__ . "/src/CubicMushroom/PostcodeDataLoader/Entity");
+        $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
+
+        $this->entityManager = $entityManager = EntityManager::create($dbParams, $config);
     }
 
     /**

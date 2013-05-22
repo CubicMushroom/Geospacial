@@ -24,7 +24,7 @@ require __DIR__ . "/../../../../../vendor/autoload.php";
 /**
  * Test class for the Geocoder class methods
  */
-class ConvertTest extends \PHPUnit_Framework_TestCase
+class GeocoderTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -32,7 +32,13 @@ class ConvertTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->geocoder = new Geocoder();
+        $dbParams = array(
+            'driver'   => 'pdo_mysql',
+            'user'     => 'geocoder',
+            'password' => 'AvufmpsQCh5ThK39',
+            'dbname'   => 'geocoder',
+        );
+        $this->geocoder = new Geocoder( $dbParams );
     }
 
     /**
